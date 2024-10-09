@@ -1,4 +1,10 @@
-""" User model """
+"""
+This module contains the definition of the User class,
+which represents an user schema using Pydantic.
+
+The User class includes attributes such as id_user, username,
+name, lastname, email, password, profile_picture, and type_user.
+"""
 
 from pydantic import BaseModel
 
