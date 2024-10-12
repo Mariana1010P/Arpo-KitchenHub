@@ -5,17 +5,19 @@ This module configures and manages the database connection using Peewee ORM.
 import os
 from dotenv import load_dotenv
 from peewee import Model, MySQLDatabase, AutoField, CharField  # type: ignore
+from config.settings import DATABASE
 
 # Load environment variables from a .env file
 load_dotenv()
 
-# Configure the MySQL database connection
+print(DATABASE)
+
 database = MySQLDatabase(
-    os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    passwd=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=int(os.getenv("MYSQL_PORT")),
+    DATABASE["name"],
+    user=DATABASE["user"],
+    passwd=DATABASE["password"],
+    host=DATABASE["host"],
+    port=DATABASE["port"],
 )
 
 

@@ -9,6 +9,8 @@ from config.settings import DATABASE  # Asegúrate de que esta ruta sea correcta
 
 Base = declarative_base()
 
+# pylint: disable=too-few-public-methods
+
 
 class User(Base):
     __tablename__ = "user"
