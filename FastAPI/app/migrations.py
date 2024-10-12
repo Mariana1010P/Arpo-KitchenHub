@@ -1,9 +1,13 @@
 """Documentacion"""
 
+# pylint: disable=C0115, E0401, R0903, C0301, C0103
+
+# pylint: disable=no-member
+
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine 
+from sqlalchemy import create_engine
 from app.config.settings import DATABASE  # pylint: disable=no-member
 
 Base = declarative_base()
@@ -147,31 +151,34 @@ class RecipeMenu(Base):
 
 
 class Recipe(Base):
-     """
+    """
     Model representing a shopping list
     """
-    __tablename__ = "recipe"
-    id_recipe = Column(Integer, primary_key=True, index=True)
-    name = Column(String(50), index=True)
-    description = Column(String(50))
-    instructions = Column(String(50))
-    preparation_time = Column(String(50))
-    status = Column(String(50))
-    difficulty = Column(String(50))
-    id_user = Column(Integer, ForeignKey("users.id_user"))
-    id_quantity = Column(Integer, ForeignKey("quantity.id_quantity"))
 
-    # Relationships
-    user = relationship("User", back_populates="recipes")
-    favorites = relationship("Favorities", back_populates="recipe")
-    recipe_categories = relationship("RecipeCategory", back_populates="recipe")
-    recipe_menus = relationship("RecipeMenu", back_populates="recipe")
+
+tablename__ = "recipe"
+id_recipe = Column(Integer, primary_key=True, index=True)
+name = Column(String(50), index=True)
+description = Column(String(50))
+instructions = Column(String(50))
+preparation_time = Column(String(50))
+status = Column(String(50))
+difficulty = Column(String(50))
+id_user = Column(Integer, ForeignKey("users.id_user"))
+id_quantity = Column(Integer, ForeignKey("quantity.id_quantity"))
+
+# Relationships
+user = relationship("User", back_populates="recipes")
+favorites = relationship("Favorities", back_populates="recipe")
+recipe_categories = relationship("RecipeCategory", back_populates="recipe")
+recipe_menus = relationship("RecipeMenu", back_populates="recipe")
 
 
 class ShoppingList(Base):
     """
     Model representing a shopping list
     """
+
     __tablename__ = "shopping_list"
     id_shopping_list = Column(Integer, primary_key=True, index=True)
     status = Column(String(50))
@@ -179,7 +186,6 @@ class ShoppingList(Base):
     creation_date = Column(String(50))
     id_user = Column(Integer, ForeignKey("users.id_user"))
     id_quantity = Column(Integer, ForeignKey("quantity.id_quantity"))
-    id_ingredient = Column(Integer, ForeignKey("ingredient.id_ingredient"))
 
     # Relationships
     user = relationship("User", back_populates="shopping_lists")
