@@ -3,6 +3,7 @@
 Run migrations using Alembic.
 
 """
+# pylint: disable=E0401, E1101, C0411:
 
 from __future__ import annotations
 from logging.config import fileConfig
