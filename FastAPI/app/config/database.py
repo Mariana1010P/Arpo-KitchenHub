@@ -54,3 +54,29 @@ class UserModel(Model):
 
         database = database
         table_name = "user"
+
+
+class rol(Model):
+    """
+    rol class for representing the 'rol' table in the database.
+
+    Attributes:
+        id_rol (AutoField): The unique identifier for the rol.
+        name (CharField): The name of the rol.
+
+    """
+
+    id_rol = AutoField(primary_key=True)
+    name = CharField(max_length=50)
+
+    class Meta:
+        """
+        Meta class for the 'rol' table in the database.
+
+        Attributes:
+            database (MySQLDatabase): The database connection used by the model.
+            table_name (str): The name of the table in the database.
+        """
+
+        database = database
+        table_name = "rol"

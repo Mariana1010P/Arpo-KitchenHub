@@ -12,7 +12,7 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from app.migrations import Base, DATABASE_URL # type: ignore
+from app.migrations import Base, DATABASE_URL  # type: ignore
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -80,7 +80,7 @@ def run_migrations_online() -> None:
             context.run_migrations()
 
 
-if context.is_offline_mode(): 
+if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()

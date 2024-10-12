@@ -14,7 +14,7 @@ if ENV == "production":
         "host": os.getenv("MYSQL_HOST"),
         "name": os.getenv("MYSQL_DATABASE"),
         "port": int(os.getenv("MYSQL_PORT")),
-        "engine": "peewee.MySQLDatabase"
+        "engine": "peewee.MySQLDatabase",
     }
 else:
     DATABASE = {
@@ -23,5 +23,5 @@ else:
         "host": os.getenv("MYSQL_HOST"),
         "name": os.getenv("MYSQL_DATABASE"),
         "port": int(os.getenv("MYSQL_PORT")),
-        "engine": "peewee.MySQLDatabase"
+        "engine": "peewee.MySQLDatabase",
     }
